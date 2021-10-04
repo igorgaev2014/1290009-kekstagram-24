@@ -49,6 +49,7 @@ const MESSAGES = [
 ];
 
 // Количество фотографий
+const PHOTOS_START_INDEX = 1;
 const PHOTOS_LENGTH = 25;
 
 // Получение уникального элемента массива
@@ -85,16 +86,7 @@ const createUserPhotoDescription = (id) => {
   };
 };
 
-// Генерация объектов рандомно с описанием фото в количестве, указанном в константе PHOTOS_LENGTН
-// const photosArray = Array.from({length: PHOTOS_LENGTH}, createUserPhotoDescription);
-
-// Пустой массив объектов для фотографий
-const photosArray = [];
-
-// Генерация объектов с неповторяющимися id путем присваивания объекта в пустой массив в цикле от 1 до значения PHOTOS_LENGTH
-
-for (let i = 1; i <= PHOTOS_LENGTH; i++) {
-  photosArray.push(createUserPhotoDescription(i));
-}
-
-//console.log(photosArray);
+// Генерация объектов с описанием фото в количестве, указанном в константе PHOTOS_LENGTН
+const photosArray = Array.from({length: PHOTOS_LENGTH}, (_, idx) => (idx + PHOTOS_START_INDEX, createUserPhotoDescription(idx + PHOTOS_START_INDEX)));
+console.log(photosArray);
+//Array.from({ length: 10}, (_, idx) => console.log(idx, ‘index’))
