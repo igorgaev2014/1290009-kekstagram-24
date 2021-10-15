@@ -69,11 +69,11 @@ const createUserPhotoDescription = (id) => {
     url: randomUrl,
     description: randomDescription,
     likes: randomLikes,
-    comments: createPhotoCommentary(id),
+    comments: Array.from({length: getRandomInteger(1, 6)}, (_, idx) => createPhotoCommentary(idx)),
   };
 };
 
 // Генерация объектов с описанием фото в количестве, указанном в константе PHOTOS_LENGTН
-const photosArray = Array.from({length: PHOTOS_LENGTH}, (_, idx) => (idx + PHOTOS_START_INDEX, createUserPhotoDescription(idx + PHOTOS_START_INDEX)));
+const mockedPhotos = Array.from({length: PHOTOS_LENGTH}, (_, idx) => (idx + PHOTOS_START_INDEX, createUserPhotoDescription(idx + PHOTOS_START_INDEX)));
 
-export {photosArray};
+export {mockedPhotos};
