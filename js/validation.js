@@ -6,7 +6,7 @@ const hashtagInput = document.querySelector('.text__hashtags');
 const pattern = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
 
 // Ф-я проверки длины комментария
-const checkCommentInput = () => {
+const onCommentInput = () => {
   const commentLength = commentInput.value.length;
 
   if (commentLength > MAX_COMMENT_LENGTH) {
@@ -17,10 +17,9 @@ const checkCommentInput = () => {
   commentInput.reportValidity();
 };
 
-commentInput.addEventListener('input', checkCommentInput);
-
+commentInput.addEventListener('input', onCommentInput);
 // Ф-я проверки хэштега
-const checkHashtagInput = () => {
+const onHashtagInput = () => {
   // Меняем все заглавные буквы на строчные и преобразовываем строку в массив
   const hashtags = hashtagInput.value.toLowerCase().split(' ');
   const invalidHashtags = [];
@@ -47,4 +46,4 @@ const checkHashtagInput = () => {
   hashtagInput.reportValidity();
 };
 
-hashtagInput.addEventListener('input', checkHashtagInput);
+hashtagInput.addEventListener('input', onHashtagInput);

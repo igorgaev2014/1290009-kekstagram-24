@@ -59,3 +59,4 @@ uploadCancelControl.addEventListener('keydown', (evt) => {
   }
 });
 
+openUserModal();
