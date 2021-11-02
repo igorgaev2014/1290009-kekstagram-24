@@ -1,8 +1,8 @@
 const sliderElement = document.querySelector('.effect-level__slider');
 const valueElement = document.querySelectorAll('.effect-level__value');
 const effectsList = document.querySelector('.effects__list');
-const imagePreview = document.querySelector('.img-upload__preview');
 let currentEffect = 'none';
+const imagePreview = document.querySelector('.img-upload__preview');
 
 // создаем слайдер
 noUiSlider.create(sliderElement, {
@@ -108,4 +108,4 @@ sliderElement.noUiSlider.on('update', (values, handle) => {
 
 document.querySelector('.effect-level').classList.add('hidden');
 
-applyEffect();
+export {applyEffect};

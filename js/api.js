@@ -5,7 +5,7 @@ const getData = (onSuccess, onFail) => {
       onSuccess(photos);
     })
     .catch(() => {
-      onFail();
+      onFail('Ошибка загрузки фотографий с сервера');
     });
 };
 
@@ -19,7 +19,7 @@ const sendData = (onSuccess, onFail, body) => {
   )
     .then((response) => {
       if (response.ok) {
-        onSuccess();
+        onSuccess('Форма отправлена');
       } else {
         onFail('Не удалось отправить форму. Попробуйте ещё раз');
       }
