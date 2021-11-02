@@ -49,7 +49,7 @@ const applyEffect = () => {
     sliderElement.noUiSlider.set(100);
 
     switch (currentEffect) {
-      case 'marvin':
+      case 'marvin': {
         sliderElement.noUiSlider.updateOptions({
           range: {
             min: 0,
@@ -59,7 +59,8 @@ const applyEffect = () => {
           start: 100,
         });
         break;
-      case 'phobos':
+      }
+      case 'phobos': {
         sliderElement.noUiSlider.updateOptions({
           range: {
             min: 0,
@@ -69,7 +70,8 @@ const applyEffect = () => {
           start: 3,
         });
         break;
-      case 'heat':
+      }
+      case 'heat': {
         sliderElement.noUiSlider.updateOptions({
           range: {
             min: 1,
@@ -79,8 +81,9 @@ const applyEffect = () => {
           start: 3,
         });
         break;
+      }
       case 'chrome':
-      case 'sepia':
+      case 'sepia': {
         sliderElement.noUiSlider.updateOptions({
           range: {
             min: 0,
@@ -90,10 +93,11 @@ const applyEffect = () => {
           step: 0.1,
         });
         break;
-      case 'none':
+      }
+      case 'none': {
         document.querySelector('.effect-level').classList.add('hidden');
+      }
     }
-
   });
 };
 

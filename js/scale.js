@@ -1,5 +1,3 @@
-const smallerScale = document.querySelector('.scale__control--smaller');
-const biggerScale = document.querySelector('.scale__control--bigger');
 const scaleControl = document.querySelector('.scale__control--value');
 const imgPreview = document.querySelector('.img-upload__preview');
 
@@ -22,7 +20,6 @@ const onSmallerScaleClick = () => {
   }
 };
 
-smallerScale.addEventListener('click', onSmallerScaleClick);
 
 // Увеличение масштаба
 const onBiggerScaleClick = () => {
@@ -33,4 +30,5 @@ const onBiggerScaleClick = () => {
   }
 };
 
-biggerScale.addEventListener('click', onBiggerScaleClick);
+export {onSmallerScaleClick, onBiggerScaleClick};
+
