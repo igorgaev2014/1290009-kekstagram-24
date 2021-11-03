@@ -1,7 +1,5 @@
-const smallerScale = document.querySelector('.scale__control--smaller');
-const biggerScale = document.querySelector('.scale__control--bigger');
+import {imagePreview} from './form.js';
 const scaleControl = document.querySelector('.scale__control--value');
-const imgPreview = document.querySelector('.img-upload__preview');
 
 const SCALE_STEP = 25;
 const MIN_SCALE_RANGE = 25;
@@ -17,20 +15,19 @@ let currentScaleValue = parseInt(scaleControl.value, 10);
 const onSmallerScaleClick = () => {
   if (currentScaleValue > MIN_SCALE_RANGE) {
     currentScaleValue = currentScaleValue - SCALE_STEP;
-    imgPreview.style.transform = `scale(${currentScaleValue / 100})`;
+    imagePreview.style.transform = `scale(${currentScaleValue / 100})`;
     scaleControl.setAttribute('value', `${currentScaleValue}%`);
   }
 };
-
-smallerScale.addEventListener('click', onSmallerScaleClick);
 
 // Увеличение масштаба
 const onBiggerScaleClick = () => {
   if (currentScaleValue < MAX_SCALE_RANGE) {
     currentScaleValue = currentScaleValue + SCALE_STEP;
-    imgPreview.style.transform = `scale(${currentScaleValue / 100})`;
+    imagePreview.style.transform = `scale(${currentScaleValue / 100})`;
     scaleControl.setAttribute('value', `${currentScaleValue}%`);
   }
 };
 
-biggerScale.addEventListener('click', onBiggerScaleClick);
+export {onSmallerScaleClick, onBiggerScaleClick};
+

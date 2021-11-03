@@ -1,6 +1,11 @@
-import { mockedPhotos } from './data.js';
-import { smallPictures } from './renderSmallPictures.js';
-import './form.js';
-import './validation.js';
-import './scale.js';
-import './slider.js';
+import {closeUserModal, setUserFormSubmit} from './form.js';
+import {renderSmallPictures} from './renderSmallPictures.js';
+import {getData} from './api.js';
+import {showAlert} from './utils.js';
+
+getData(
+  (photos) => renderSmallPictures(photos),
+  () => showAlert('Ошибка загрузки фотографий с сервера, перезагрузите страницу'),
+);
+
+setUserFormSubmit(closeUserModal);

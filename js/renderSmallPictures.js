@@ -1,5 +1,3 @@
-import { mockedPhotos } from './data.js';
-
 // находим блок pictures
 const smallPictures = document.querySelector('.pictures');
 
@@ -9,22 +7,23 @@ const smallPicturesTemplate = document.querySelector('#picture').content.querySe
 // создаем обертку
 const smallPicturesFragment = document.createDocumentFragment();
 
-// константе присваиваем импортированный массив фото
-const smallPicturesData = mockedPhotos;
+const renderSmallPictures = (smallPicturesData) => {
 
-// перебор массива фото в цикле с присваиванием данных
-smallPicturesData.forEach(({url, likes, comments}) => {
-  // клон заготовки с внутренностями
-  const element = smallPicturesTemplate.cloneNode(true);
-  // присваивание данных
-  element.querySelector('.picture__img').src = url;
-  element.querySelector('.picture__likes').textContent = likes;
-  element.querySelector('.picture__comments').textContent = comments.length;
-  // обертке добавляются клоны с каждой итерацией
-  smallPicturesFragment.appendChild(element);
-});
+  // перебор массива фото в цикле с присваиванием данных
+  smallPicturesData.forEach(({url, likes, comments}) => {
+    // клон заготовки с внутренностями
+    const element = smallPicturesTemplate.cloneNode(true);
+    // присваивание данных
+    element.querySelector('.picture__img').src = url;
+    element.querySelector('.picture__likes').textContent = likes;
+    element.querySelector('.picture__comments').textContent = comments.length;
+    // обертке добавляются клоны с каждой итерацией
+    smallPicturesFragment.appendChild(element);
+  });
 
-// блоку добавляются обертка
-smallPictures.appendChild(smallPicturesFragment);
+  // блоку добавляются обертка
+  smallPictures.appendChild(smallPicturesFragment);
 
-export {smallPictures};
+};
+
+export {renderSmallPictures};

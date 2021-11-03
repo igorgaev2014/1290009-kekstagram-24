@@ -1,8 +1,8 @@
+import {hashtagInput, commentInput} from './form.js';
+
 const MAX_COMMENT_LENGTH = 140;
 const MAX_HASHTAGS_COUNT = 5;
 
-const commentInput = document.querySelector('.text__description');
-const hashtagInput = document.querySelector('.text__hashtags');
 const pattern = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
 
 // Ф-я проверки длины комментария
@@ -17,7 +17,6 @@ const onCommentInput = () => {
   commentInput.reportValidity();
 };
 
-commentInput.addEventListener('input', onCommentInput);
 // Ф-я проверки хэштега
 const onHashtagInput = () => {
   // Меняем все заглавные буквы на строчные и преобразовываем строку в массив
@@ -46,4 +45,4 @@ const onHashtagInput = () => {
   hashtagInput.reportValidity();
 };
 
-hashtagInput.addEventListener('input', onHashtagInput);
+export {onCommentInput, onHashtagInput};
