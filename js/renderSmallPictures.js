@@ -1,3 +1,5 @@
+import { gallery } from './gallery.js';
+
 // находим блок pictures
 const smallPictures = document.querySelector('.pictures');
 
@@ -7,10 +9,10 @@ const smallPicturesTemplate = document.querySelector('#picture').content.querySe
 // создаем обертку
 const smallPicturesFragment = document.createDocumentFragment();
 
-const renderSmallPictures = (smallPicturesData) => {
+const renderSmallPictures = (photosData) => {
 
   // перебор массива фото в цикле с присваиванием данных
-  smallPicturesData.forEach(({url, likes, comments}) => {
+  photosData.forEach(({url, likes, comments}) => {
     // клон заготовки с внутренностями
     const element = smallPicturesTemplate.cloneNode(true);
     // присваивание данных
@@ -23,7 +25,7 @@ const renderSmallPictures = (smallPicturesData) => {
 
   // блоку добавляются обертка
   smallPictures.appendChild(smallPicturesFragment);
-
+  gallery(photosData);
 };
 
-export {renderSmallPictures};
+export {renderSmallPictures, smallPictures};
