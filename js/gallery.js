@@ -1,5 +1,5 @@
 import { isEscapeKey } from './utils.js';
-import { bigPicture, renderBigPicture } from './renderBigPicture.js';
+import { bigPicture, renderBigPicture, showHiddenComments, commentsLoader} from './renderBigPicture.js';
 import { smallPictures } from './renderSmallPictures.js';
 
 const gallery = (photosData) => {
@@ -16,12 +16,14 @@ const gallery = (photosData) => {
     bigPicture.classList.remove('hidden');
     document.body.classList.add('modal-open');
     renderBigPicture(evt, photos);
+    commentsLoader.addEventListener('click', showHiddenComments);
     document.addEventListener('keydown', onBigPictureEscKeyDown);
   }
 
   function closeBigPicture () {
     bigPicture.classList.toggle('hidden');
     document.body.classList.remove('modal-open');
+    commentsLoader.removeEventListener('click', showHiddenComments);
     document.removeEventListener('keydown', onBigPictureEscKeyDown);
   }
 
