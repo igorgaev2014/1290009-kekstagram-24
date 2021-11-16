@@ -89,4 +89,7 @@ const showAlert = (errorMessage) => {
   }, ALERT_SHOW_TIME);
 };
 
-export {getRandomInteger, checkStringMaxLength, isEscapeKey, isEnterKey, showAlert, showSuccessMessage, showErrorMessage};
+
+const checkDuplicates = (data) => (new Set(data)).size !== data.length;
+
+export {getRandomInteger, checkStringMaxLength, isEscapeKey, isEnterKey, showAlert, showSuccessMessage, showErrorMessage, checkDuplicates};

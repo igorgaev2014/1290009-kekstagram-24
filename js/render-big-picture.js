@@ -1,5 +1,5 @@
 const bigPicture = document.querySelector('.big-picture');
-const socialComments = document.querySelector('.social__comments');
+const socialComments = bigPicture.querySelector('.social__comments');
 const socialComment = socialComments.querySelector('.social__comment');
 const commentsFragment = document.createDocumentFragment();
 const socialCommentCount = document.querySelector('.social__comment-count');
@@ -10,7 +10,7 @@ const MAX_COMMENTS = 5;
 let shownCommentCount = MAX_COMMENTS;
 // при закрытии shownCommentsCount = MAX_COMMENTS
 
-const commentsLogic = () => {
+const checkComments = () => {
   // превращаем коллекцию в массив
   const comments = Array.from(socialComments.children);
   // если комментов больше 5
@@ -38,7 +38,7 @@ const commentsLogic = () => {
 // показ скрытых комментов
 const showHiddenComments = () => {
   shownCommentCount += MAX_COMMENTS;
-  commentsLogic();
+  checkComments();
   if (shownCommentCount >= socialComments.children.length) {
     commentsLoader.classList.add('hidden');
     shownCommentsCount.textContent = socialComments.children.length;
@@ -69,7 +69,7 @@ const renderBigPicture = (evt, photosData) => {
   socialComments.appendChild(commentsFragment);
   shownCommentsCount.textContent = MAX_COMMENTS;
   shownCommentCount = MAX_COMMENTS;
-  commentsLogic();
+  checkComments();
 };
 
 export {renderBigPicture, bigPicture, commentsLoader, showHiddenComments};

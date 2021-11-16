@@ -10,6 +10,11 @@ const smallPicturesTemplate = document.querySelector('#picture').content.querySe
 const smallPicturesFragment = document.createDocumentFragment();
 
 const renderSmallPictures = (photosData) => {
+  // удаление отрисованных фото
+  const pictureElement = document.querySelectorAll('.picture');
+  pictureElement.forEach((element) => {
+    element.remove();
+  });
 
   // перебор массива фото в цикле с присваиванием данных
   photosData.forEach(({url, likes, comments}) => {

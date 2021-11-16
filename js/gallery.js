@@ -1,6 +1,6 @@
 import { isEscapeKey } from './utils.js';
-import { bigPicture, renderBigPicture, showHiddenComments, commentsLoader} from './renderBigPicture.js';
-import { smallPictures } from './renderSmallPictures.js';
+import { bigPicture, renderBigPicture, showHiddenComments, commentsLoader} from './render-big-picture.js';
+import { smallPictures } from './render-small-pictures.js';
 
 const gallery = (photosData) => {
   const closeBigPictureButton = document.querySelector('.big-picture__cancel');
@@ -21,7 +21,7 @@ const gallery = (photosData) => {
   }
 
   function closeBigPicture () {
-    bigPicture.classList.toggle('hidden');
+    bigPicture.classList.add('hidden');
     document.body.classList.remove('modal-open');
     commentsLoader.removeEventListener('click', showHiddenComments);
     document.removeEventListener('keydown', onBigPictureEscKeyDown);
